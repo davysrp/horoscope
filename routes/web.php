@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/dd', function () {
+    return view('home');
+});
 Route::get('/', [\App\Http\Controllers\BackendController::class,'index']);
