@@ -124,12 +124,12 @@ class BackendController extends Controller
         ];
         $kalyok = [
             1 => 'ភង្គៈ',
-            2 => 'បុតិ',
+            2 => 'បូតិ',
             3 => 'រណ្តៅទ្រព្យ',
             4 => 'មរណៈ',
-            5 => 'ទង់ជ័យ',
-            6 => 'អធិបតី',
-            7 => 'រាជា',
+            5 => 'អធិបតី',
+            6 => 'រាជា',
+            7 => 'ទង់ជ័យ',
         ];
         $kalyokNumber = [
             1 => 'ដួងអ្នកកំព្រា',
@@ -138,6 +138,7 @@ class BackendController extends Controller
             4 => 'ដួងអ្នកសុខសាន្ត',
             5 => 'ដួងអ្នកសេដ្ឋី',
             6 => 'ដួងអ្នកវិជ្ជាការ',
+            7 => 'ដួងមហាសេដ្ឋី',
             0 => 'ដួងមហាសេដ្ឋី',
         ];
 
@@ -152,24 +153,34 @@ class BackendController extends Controller
             8 => 'ឧត្តរ(ជើង)',
         ];
 
+        $engName = [
+            'Sunday' => 1,
+            'Monday' => 2,
+            'Tuesday' => 3,
+            'Wednesday' => 4,
+            'Thursday' => 5,
+            'Friday' => 6,
+            'Saturday' => 7,
+        ];
 
         $kalyokArr = null;
         $teaksaArr = null;
 
-        $bornNumber1 = (1993 - 638) % 7;
-        $bornNumber = (1993 - 638) % 7;
+//        $bornNumber1 = (1993 - 638) % 7;
         $bornDate = '1993-12-19';
+        $year = Carbon::parse($bornDate)->format('Y');
+        $bornNumber = ($year - 638) % 7;
+
         $dayName = Carbon::parse($bornDate)->format('l');
-        $dayNumber = 1;
+        $dayNumber = 2;
 
-        if ($bornNumber == 1) $kalyokArr = [1, 2, 3, 4, 5, 6, 4, 7];
-        if ($bornNumber == 2) $kalyokArr = [2, 3, 4, 5, 6, 4, 7, 1];
-        if ($bornNumber == 3) $kalyokArr = [3, 4, 5, 6, 4, 7, 1, 2];
-        if ($bornNumber == 4) $kalyokArr = [4, 5, 6, 4, 7, 1, 2, 3];
-        if ($bornNumber == 5) $kalyokArr = [5, 4, 6, 7, 1, 2, 3, 4];
-        if ($bornNumber == 6) $kalyokArr = [6, 7, 1, 2, 3, 4, 5, 3];
-        if ($bornNumber == 7 | $bornNumber == 0) $kalyokArr = [7, 1,6, 2, 3, 4, 5, 6];
-
+        if ($bornNumber == 1) $kalyokArr = [1, 2, 3, 4, 7, 5, 4, 6];
+        if ($bornNumber == 2) $kalyokArr = [7,1,2,3,6,4,3,5];
+        if ($bornNumber == 3) $kalyokArr = [6,7,1,2,5,3,2,4];
+        if ($bornNumber == 4) $kalyokArr = [5,6,7,1,4,2,1,3];
+        if ($bornNumber == 5) $kalyokArr = [4,5,6,7,3,1,7,2];
+        if ($bornNumber == 6) $kalyokArr = [3,4,5,6,2,7,6,1];
+        if ($bornNumber == 7 | $bornNumber == 0) $kalyokArr = [2,3,4,5,1,6,5,7];
 
         if ($dayNumber == 1) $teaksaStartNumber = [1, 2, 3, 4, 5, 6, 7, 8];
         if ($dayNumber == 2) $teaksaStartNumber = [8, 1, 2, 3, 4, 5, 6, 7];
@@ -180,31 +191,37 @@ class BackendController extends Controller
         if ($dayNumber == 7) $teaksaStartNumber = [3, 4, 5, 6, 7, 8, 1, 2];
         if ($dayNumber == 8) $teaksaStartNumber = [2, 3, 4, 5, 6, 7, 8, 1];
 
-
         $responseData = [];
-        for ($i = 1; $i <= 8; $i++) {
-            $kalyokArrx = $kalyokArr[$i - 1] ?? null;
-            $teaksaNum = $teaksaStartNumber[$i - 1] ?? null;
-            $responseData[] = [
-                'duong' => '[' . $bornNumber1 . ']' . $kalyokNumber[$bornNumber1] ?? null,
-                'direction' => '[' . $i . ']' . $direction[$i],
-                'key' => $day[$i]['key'],
-                'day' => $day[$i]['name'],
-                'animal' => $day[$i]['animal'],
-                'dt' => $day[$i]['dt'],
-                'dt2' => $day[$i]['dt2'],
-                'teaksa' => $teaksa[$teaksaNum] ?? null,
+        $i = 0;
+        foreach ($day as $key => $item) {
+            if ($key <= 8) {
+                $responseData[] = [
+                    'direction' => $direction[$key],
+                    'key' => $item['key'],
+                    'day' => $item['name'],
+                    'element' => $item['element'],
+                    'dt' => $item['dt'],
+                    'dt2' => $item['dt2'],
+                    'animal' => $item['animal'],
+                    'letter' => $item['letter'],
+                    'year' => $item['year'] . ' Years',
+                    'kalyok' => $kalyok[$kalyokArr[$i]] ?? null,
+                    'taksa' => $teaksa[$teaksaStartNumber[$i]],
 
-                'kalyok' => $kalyok[$kalyokArrx] ?? null,
-                'aa' => $kalyokArrx,
-            ];
 
-            if ($i != $bornNumber) $bornNumber++;
-            if ($bornNumber1 == 3 && $bornNumber >= 9) $bornNumber = $bornNumber1 - 2;
+
+                ];
+
+                $i++;
+            }
         }
 
 
-        return response()->json($responseData);
+        return response()->json([
+            'dd' => $kalyokArr,
+            'duong' => '[' . $bornNumber . ']' . $kalyokNumber[$bornNumber] ?? null,
+            'data' => $responseData
+        ]);
 
     }
 }
