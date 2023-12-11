@@ -218,7 +218,6 @@ class BackendController extends Controller
 
 
         return response()->json([
-            'dd' => $kalyokArr,
             'duong' => '[' . $bornNumber . ']' . $kalyokNumber[$bornNumber] ?? null,
             'data' => $responseData
         ]);
