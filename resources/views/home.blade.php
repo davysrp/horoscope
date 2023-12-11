@@ -9,46 +9,166 @@
     <link href="{!! asset('assets/css/style.css') !!}" rel="stylesheet" crossorigin="anonymous">
 </head>
 <body>
-<div class="wrapper">
-    <div class="pie-wrap">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="wrapper">
+                <div class="pie-wrap">
+                    <div class="pink-left entry">
+                        <p class="entry-value">Beans </p>
+                    </div>
 
-        <div class="light-yellow entry">
-            <p>25%</p>
-            <p class="entry-value">Rice</p>
+                    <div class="purple-left entry">
+                        <p class="entry-value">Plantain</p>
+                    </div>
+
+                    <div class="green-left entry">
+                        <p class="entry-value">Potato</p>
+                    </div>
+
+                    <div class="wheat-left entry">
+                        <p class="entry-value">Yam</p>
+                    </div>
+
+
+                    <div class="pink entry">
+                        <p class="entry-value">Beans </p>
+                    </div>
+
+                    <div class="purple entry">
+                        <p class="entry-value">Plantain</p>
+                    </div>
+
+                    <div class="green entry">
+                        <p class="entry-value">Potato</p>
+                    </div>
+
+                    <div class="wheat entry">
+                        <p class="entry-value">Yam</p>
+                    </div>
+
+                </div>
+            </div>
+            <div style="position: relative">
+                <div class="wrapper-2">
+                    <div class="pie-wrap-2">
+                        <div class="pink-left entry">
+                            <p class="entry-value">Beans </p>
+                        </div>
+
+                        <div class="purple-left entry">
+                            <p class="entry-value">Plantain</p>
+                        </div>
+
+                        <div class="green-left entry">
+                            <p class="entry-value">Potato</p>
+                        </div>
+
+                        <div class="wheat-left entry">
+                            <p class="entry-value">Yam</p>
+                        </div>
+
+
+                        <div class="pink entry">
+                            <p class="entry-value">Beans </p>
+                        </div>
+
+                        <div class="purple entry">
+                            <p class="entry-value">Plantain</p>
+                        </div>
+
+                        <div class="green entry">
+                            <p class="entry-value">Potato</p>
+                        </div>
+
+                        <div class="wheat entry">
+                            <p class="entry-value">Yam</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative">
+                <div class="wrapper-3">
+                    <div class="pie-wrap-3">
+                        <div class="pink-left entry">
+                            <p class="entry-value">Beans </p>
+                        </div>
+
+                        <div class="purple-left entry">
+                            <p class="entry-value">Plantain</p>
+                        </div>
+
+                        <div class="green-left entry">
+                            <p class="entry-value">Potato</p>
+                        </div>
+
+                        <div class="wheat-left entry">
+                            <p class="entry-value">Yam</p>
+                        </div>
+
+
+                        <div class="pink entry">
+                            <p class="entry-value">Beans </p>
+                        </div>
+
+                        <div class="purple entry">
+                            <p class="entry-value">Plantain</p>
+                        </div>
+
+                        <div class="green entry">
+                            <p class="entry-value">Potato</p>
+                        </div>
+
+                        <div class="wheat entry">
+                            <p class="entry-value">Yam</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative">
+                <div class="wrapper-4">
+                    <div class="pie-wrap-4">
+                        <div class="pink-left entry">
+                            <p class="entry-value">Beans </p>
+                        </div>
+
+                        <div class="purple-left entry">
+                            <p class="entry-value">Plantain</p>
+                        </div>
+
+                        <div class="green-left entry">
+                            <p class="entry-value">Potato</p>
+                        </div>
+
+                        <div class="wheat-left entry">
+                            <p class="entry-value">Yam</p>
+                        </div>
+
+
+                        <div class="pink entry">
+                            <p class="entry-value">Beans </p>
+                        </div>
+
+                        <div class="purple entry">
+                            <p class="entry-value">Plantain</p>
+                        </div>
+
+                        <div class="green entry">
+                            <p class="entry-value">Potato</p>
+                        </div>
+
+                        <div class="wheat entry">
+                            <p class="entry-value">Yam</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="sky-blue entry">
-            <p>25%</p>
-            <p class="entry-value">Pasta</p>
-        </div>
-
-        <div class="pink entry">
-            <p>12.5%</p>
-            <p class="entry-value">Beans </p>
-        </div>
-
-        <div class="purple entry">
-            <p> 12.5%</p>
-            <p class="entry-value">Plantain</p>
-        </div>
-
-        <div class="green entry">
-            <p> 12.5%</p>
-            <p class="entry-value">Potato</p>
-        </div>
-
-        <div class="wheat entry">
-            <p> 12.5%</p>
-            <p class="entry-value">Yam</p>
-        </div>
-
     </div>
-
-    <div class="key-wrap"></div>
-
 </div>
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script src="{!! asset('assets/js/bootstrap.bundle.js') !!}" crossorigin="anonymous"></script>
